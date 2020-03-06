@@ -2,12 +2,12 @@ class Heap:
 
 	def __init__(self):
 		self.HeapArray = []
+		self.Length = 0
 		
 	def MakeHeap(self, a, depth):
-		self.lenth = 2**depth-1
+		self.Length = 2**(depth+1)-1
 		for i in range (len(a)):
-			if i < self.lenth:
-
+			if i < self.Length:
 				self.HeapArray.append(a[i])
 				while i > 0: 
 					if i % 2 != 0:
@@ -25,7 +25,6 @@ class Heap:
 						else:
 							i = 0
 			else:
-				print(i)
 				return
 
 	def GetMax(self):
@@ -35,7 +34,7 @@ class Heap:
 			return -1
 
 	def Add(self, key):
-		if len(self.HeapArray) < self.lenth:
+		if len(self.HeapArray) < self.Length:
 			self.HeapArray.append(key)
 			i = len(self.HeapArray)-1
 			while i > 0: 
